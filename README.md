@@ -1,2 +1,2 @@
 # SPEINet
-our code will be publish later
+Our code will be publish later
