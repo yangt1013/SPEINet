@@ -1,2 +1,2 @@
 # SPEINet
-Our complete code will be publish later
+Code and data will be available soon.
