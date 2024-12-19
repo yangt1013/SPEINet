@@ -12,7 +12,7 @@ fi
 cd ..
 
 
-CUDA_VISIBLE_DEVICES=2,4,7 python main_swint_hsa_nsf.py --template SWINT_HSA_NSF
+CUDA_VISIBLE_DEVICES=2,4,7 python main_SPEINet.py --template SPEINet
 
 # Check if train.py ran successfully
 if [ $? -ne 0 ]; then
