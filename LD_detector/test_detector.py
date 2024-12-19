@@ -7,7 +7,7 @@ import cv2
 import math
 import time
 import argparse
-from model.swint_hsa_nsf import STDAT
+from model.Speinet import SPEINet
 import torch.nn.functional as F
 import torch.nn.parallel as P
 import torch.nn as nn
@@ -205,7 +205,6 @@ class Inference:
 
         self.input_path = os.path.join(self.data_path, "blur")
         self.GT_path = os.path.join(self.data_path, "gt")
-        # self.bm_path = os.path.join(self.data_path, "Blur_map")
         self.label_path = os.path.join(self.data_path, "labelt")
         print('label_path', self.label_path)
 
@@ -222,7 +221,7 @@ class Inference:
         self.logger.write_log('size_must_mode: {}'.format(self.size_must_mode))
         self.logger.write_log('device: {}'.format(self.device))
 
-        self.net = STDAT(in_channels=3, n_sequence=self.n_seq, out_channels=3, n_resblock=3, n_feat=32,
+        self.net = SPEINet(in_channels=3, n_sequence=self.n_seq, out_channels=3, n_resblock=3, n_feat=32,
                  load_flow_net=False, load_recons_net=False, flow_pretrain_fn='', recons_pretrain_fn='',
                  is_mask_filter=False, device='cuda', args=args)
         self.net.load_state_dict(torch.load(self.model_path))  #, strict=False
@@ -241,18 +240,6 @@ class Inference:
         variables = torch.cat(all_vars, dim=0).cpu().numpy()
         return variables
 
-    # def estimate_parameters(variables, labels):
-    #     '''
-    #     Logistic regression for binary estimation of sharpness
-    #     '''
-    #     model1 = LogisticRegression()
-    #     model1.fit(variables, labels)
-    #     model2 = tree.DecisionTreeClassifier()
-    #     model2.fit(variables, labels)
-    #     model3 = RandomForestClassifier()
-    #     model3.fit(variables, labels)
-    
-    #     return model1, model2, model3
 
 
     def infer(self):
