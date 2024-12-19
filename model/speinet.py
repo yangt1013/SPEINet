@@ -1,11 +1,11 @@
 import torch
 import torch.nn as nn
 from model import recons_video_ori
-from model import network_swinir
+from model import swinir
 from util import utils
 from model import SearchTransfer
 import torch.nn.functional as F
-from model.rcl import *
+from model.edgeinformation import *
 import warnings
 warnings.filterwarnings("ignore")
 def activation_statistics(features):
@@ -19,17 +19,17 @@ def make_model(args):
     load_recons_net = False
     recons_pretrain_fn = ''
     is_mask_filter = True
-    return STDAT(in_channels=args.n_colors, n_sequence=args.n_sequence, out_channels=args.n_colors,
+    return SPEINet(in_channels=args.n_colors, n_sequence=args.n_sequence, out_channels=args.n_colors,
                     n_resblock=args.n_resblock, n_feat=args.n_feat,
                     load_recons_net=load_recons_net, recons_pretrain_fn=recons_pretrain_fn,
                     is_mask_filter=is_mask_filter, device=device, args=args)
 
-class STDAT(nn.Module):
+class SPEINet(nn.Module):
     def __init__(self, in_channels=3, n_sequence=3, out_channels=3, n_resblock=3, n_feat=32,
                  load_flow_net=False, load_recons_net=False, flow_pretrain_fn='', recons_pretrain_fn='',
                  is_mask_filter=False, device='cuda', args=None):
-        super(STDAT, self).__init__()
-        print("Creating STGTN...")
+        super(SPEINet, self).__init__()
+        print("Creating SPEINet...")
 
         self.n_sequence = n_sequence
         self.device = device
@@ -37,7 +37,7 @@ class STDAT(nn.Module):
         extra_channels = 0
         print('Select mask mode: concat, num_mask={}'.format(extra_channels))
 
-        self.swin = network_swinir.SwinIR(upscale=1,
+        self.swin = swinir.SwinIR(upscale=1,
                                           in_chans=n_feat * 4,
                                           img_size=args.patch_size // 4,
                                           window_size=args.window_size,
@@ -72,37 +72,25 @@ class STDAT(nn.Module):
         batch_size, S, channels, height, width = x.shape
         batch_4_all_zeros = torch.all(x[:, 3, :, :, :] == 0, dim=1).all(dim=1).all(dim=1)
         batch_5_all_zeros = torch.all(x[:, 4, :, :, :] == 0, dim=1).all(dim=1).all(dim=1)
-        # new_tensors = []
-
-        # for i in range(batch_size):
-        #     new_batch = []
-        #     for j in range(S):
-        #         if j == 3 and batch_4_all_zeros[i]:
-        #             continue
-        #         if j == 4 and batch_5_all_zeros[i]:
-        #             continue
-        #         new_batch.append(x[i, j])
-        #     new_tensors.append(torch.stack(new_batch))
-        # new_x = torch.stack(new_tensors)
-       
+        
         return batch_4_all_zeros, batch_5_all_zeros
 
-    def _process(self, frame_list, feature_mid):
-        # blur_kernel = create_blur_kernel().to(self.device)
-        fusion = feature_mid
+    def _process(self, frame_list, f_mid):
+        blur_kernel = create_blur_kernel().to(self.device)
+        f_fusion = f_mid
         for i in range(self.n_sequence):
             if i == self.n_sequence // 2:
                 continue
-            # deblurred_tensor = r_l_per_channel(frame_list[i], blur_kernel, 1, 0.01)
-            fea = self.recons_net.encoder_second(self.recons_net.encoder_first(self.recons_net.inBlock(frame_list[i])))
-            # fea_deblurred = self.recons_net.encoder_second(self.recons_net.encoder_first(self.recons_net.inBlock(deblurred_tensor)))
-            # fea = fea + fea_deblurred
-            # trans_fea = self.swin(feature_mid, fea)
-            fusion = torch.cat((fusion, fea), dim=1)
+            deblurred_tensor = r_l_per_channel(frame_list[i], blur_kernel, 1, 0.01)
+            features = self.recons_net.encoder_second(self.recons_net.encoder_first(self.recons_net.inBlock(frame_list[i])))
+            fea_deblurred = self.recons_net.encoder_second(self.recons_net.encoder_first(self.recons_net.inBlock(deblurred_tensor)))
+            f_features = features + fea_deblurred
+            f_trans = self.swin(f_mid, f_features)
+            f_fusion = torch.cat((f_fusion, f_trans), dim=1)
         if self.n_sequence == 1:
-            trans_fea = self.swin(feature_mid, feature_mid)
-            fusion = fusion + trans_fea
-        return fusion
+            f_trans = self.swin(f_mid, f_mid)
+            f_fusion = f_fusion + f_trans
+        return f_fusion
 
     def _decode(self, fusion, weight_S, sharp_T_lv3, sharp_T_lv2, sharp_T_lv1):
         # sharp_v3 = self.conv_lv3(torch.cat((fusion, sharp_T_lv3), dim=1)) * weight_S
