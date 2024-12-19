@@ -1,6 +1,6 @@
 import torch.nn as nn
 import torch
-import model.blocks as blocks
+import model.block as blocks
 
 
 def make_model(args):
