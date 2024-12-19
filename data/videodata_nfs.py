@@ -127,7 +127,13 @@ class VIDEODATA(data.Dataset):
     def _scan(self):
         vid_gt_names = sorted(glob.glob(os.path.join(self.dir_gt, '*')))
         vid_input_names = sorted(glob.glob(os.path.join(self.dir_input, '*')))
-        vid_label_names = sorted(glob.glob(os.path.join(self.dir_label, '*')))
+        if not os.path.exists(self.dir_label):
+            variables = self.collate_all_vars(input_frames, kernel_size=11, device= self.device)
+            with open('/home/yangt/ssd1/sy32/code/detector/pickle/LogisticRegression_0.5_11.pkl', 'rb') as f:
+                model1 = pickle.load(f)
+                vid_label_names = model1.predict(variables)
+        else:
+            vid_label_names = sorted(glob.glob(os.path.join(self.dir_label, '*')))
    
         assert len(vid_gt_names) == len(vid_input_names) == len(vid_label_names), "len(vid_gt_names) must equal len(vid_input_names)"  #
 
