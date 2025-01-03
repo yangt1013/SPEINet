@@ -10,7 +10,7 @@ def set_template(args):
         args.size_must_mode = 4
         args.loss = '1*L1+2*HEM'
         args.lr = 1e-4
-        args.lr_decay = 200 #150
+        args.lr_decay = 150 #150
         args.window_size = 5
         args.depths = [6, 6, 6, 6, 6, 6]
         args.embed_dim = 256
