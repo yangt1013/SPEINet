@@ -3018,7 +3018,7 @@ Loading model from /home/yangt/nas/video_deblurring_nas/publish/D2Net-main/exper
 # Video:000008.png AVG-PSNR=33.385, AVG-SSIM=0.9251
 # Video:000009.png AVG-PSNR=30.916, AVG-SSIM=0.9418
 # Video:000010.png AVG-PSNR=31.524, AVG-SSIM=0.899
-# Video:000011.png AVG-PSNR=25.458, AVG-SSIM=0.82
+# Video:000011.png AVG-PSNR=25.458, AVG-SSIM=0.81
 # Video:000012.png AVG-PSNR=31.493, AVG-SSIM=0.9129
 # Video:000013.png AVG-PSNR=30.484, AVG-SSIM=0.8949
 # Video:000014.png AVG-PSNR=28.638, AVG-SSIM=0.8352
@@ -3028,4 +3028,4 @@ Loading model from /home/yangt/nas/video_deblurring_nas/publish/D2Net-main/exper
 # Video:000018.png AVG-PSNR=28.044, AVG-SSIM=0.8676
 # Video:000019.png AVG-PSNR=27.845, AVG-SSIM=0.7914
 # Video:000020.png AVG-PSNR=29.952, AVG-SSIM=0.9242
-# Total AVG-PSNR=29.63, AVG-SSIM=0.8934
+# Total AVG-PSNR=29.63, AVG-SSIM=0.8834
