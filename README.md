@@ -35,14 +35,9 @@ Platforms: Ubuntu 22.04, cuda-12.4, 3*A100(40G)
         |--video n
 ```
 **Download**
-Please download the testing datasets and training datasets from [BaiduYun](https://pan.baidu.com/s/1HCtfDtz35fl-ihlvhRFugQ?pwd=xtj7) password：`xtj7`
+Please download the testing datasets and training datasets (GoProO, GoProS, GoProRS, BSD) from [BaiduYun](https://pan.baidu.com/s/1HCtfDtz35fl-ihlvhRFugQ?pwd=xtj7) password：`xtj7`
 
-And pretrained model can be downloaded Here[password: wkt0] and
+And pretrained model can be downloaded Here [Google Drive Folder](https://drive.google.com/drive/folders/17gJkfAGVcBiLU50wBfueLrQHMj9J2Fev?dmr=1&ec=wgc-drive-globalnav-goto)
 
-Our SPEINet model trained on random ratio GoProRS dataset can be download Here[BaiduYun](https://pan.baidu.com/s/1HCtfDtz35fl-ihlvhRFugQ?pwd=xtj7) password：`xtj7`
+Our SPEINet model trained on random ratio GoProRS dataset can be download Here [Google Drive Folder](https://drive.google.com/drive/folders/1AfAH4Fmj1DE0tcxOCMssCqCWuIcptkBI?dmr=1&ec=wgc-drive-globalnav-goto)
 
-(i) If you have downloaded the pretrained models，please put PWC_Flow model to './pretrain_models' and D2Net model to './code/logs', respectively.
-
-(ii) If you have downloaded the datasets，please put them to './dataset'.
-
-weights and data will be available soon.
