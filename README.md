@@ -5,6 +5,12 @@
 
 [Video Deblurring](https://drive.google.com/file/d/1d7F9RDtkRZ0NQ701mw-izlyxvNz1UZnc/view?usp=drive_link)
 
+<html>
+<body>
+    <iframe src="https://drive.google.com/file/d/1d7F9RDtkRZ0NQ701mw-izlyxvNz1UZnc/preview" width="640" height="360" allow="autoplay"></iframe>
+</body>
+</html>
+
 
 
 
