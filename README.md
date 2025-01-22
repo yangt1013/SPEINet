@@ -42,5 +42,20 @@ And pretrained model can be downloaded Here [Google Drive Folder](https://drive.
 
 Our SPEINet model trained on random ratio GoProRS dataset can be download Here [Google Drive Folder](https://drive.google.com/drive/folders/1AfAH4Fmj1DE0tcxOCMssCqCWuIcptkBI?dmr=1&ec=wgc-drive-globalnav-goto)
 
-# Testing
+**GoProRS Generate**
 ```bash
+python LD_detector/choice_dataset_train.py
+```
+
+# Sharpness frame detector 
+**GoProRS Train and test**
+```bash
+python LD_detector/run_detector.sh
+```
+**Others Train and test**
+```bash
+python /LD_detector_gopros_train.py
+```
+```bash
+python /test_detector.py
+```
