@@ -1,6 +1,8 @@
 # Video Deblurring by Sharpness Prior Detection and Edge Information
 [PDF](https://arxiv.org/abs/2501.12246)    Paper is under review.
 
+
+
 # Environment
 Python >= 3.8, PyTorch >= 1.1.0
 
@@ -69,4 +71,5 @@ python inference_SPEINet.py
 ```bash
 python train.sh
 ```
-
+# Acknowledgements
+This code is built on [D2Net](https://github.com/shangwei5/D2Net?tab=readme-ov-file#prerequisites). We thank the authors for sharing the codes.
