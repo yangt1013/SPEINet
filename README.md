@@ -47,12 +47,12 @@ if you want only generate GoProRS dataset not include the SPEINet model, you can
 python LD_detector/choice_dataset_train.py
 ```
 # Sharpness frame detector 
-if you want generate the dataset and training Sharpness frame detector, you can run 
+if you want generate the dataset and training sharpness frame detector, you can run 
 
 ```bash
 python LD_detector/run_detector.sh
 ```
-if you only want train and test the detector, you can run
+if you only want train and test the detector without generate dataset, you can run
 
 ```bash
 python /LD_detector_gopros_train.py
