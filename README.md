@@ -1,15 +1,7 @@
 # Video Deblurring by Sharpness Prior Detection and Edge Information
 [Paper](https://arxiv.org/abs/2501.12246)    Paper is under review.
 # Video visulization
-<iframe src="https://drive.google.com/file/d/1d7F9RDtkRZ0NQ701mw-izlyxvNz1UZnc/preview" width="640" height="480"></iframe>
-
-[Video Deblurring](https://drive.google.com/file/d/1d7F9RDtkRZ0NQ701mw-izlyxvNz1UZnc/view?usp=drive_link)
-
-<html>
-<body>
-    <iframe src="https://drive.google.com/file/d/1d7F9RDtkRZ0NQ701mw-izlyxvNz1UZnc/preview" width="640" height="360" allow="autoplay"></iframe>
-</body>
-</html>
+[Video Deblurring Visulization](https://drive.google.com/file/d/1d7F9RDtkRZ0NQ701mw-izlyxvNz1UZnc/view?usp=drive_link)
 
 
 
