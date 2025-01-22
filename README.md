@@ -40,9 +40,9 @@ Platforms: Ubuntu 22.04, cuda-12.4, 3*A100(40G)
 
 Please download the testing datasets and training datasets (GoProO, GoProS, GoProRS, BSD) from [BaiduYun](https://pan.baidu.com/s/1HCtfDtz35fl-ihlvhRFugQ?pwd=xtj7) password：`xtj7`
 
-And pretrained model can be downloaded Here [Google Drive Folder](https://drive.google.com/drive/folders/17gJkfAGVcBiLU50wBfueLrQHMj9J2Fev?dmr=1&ec=wgc-drive-globalnav-goto)
+And pretrained model can be downloaded Here [Google Drive](https://drive.google.com/drive/folders/17gJkfAGVcBiLU50wBfueLrQHMj9J2Fev?dmr=1&ec=wgc-drive-globalnav-goto)
 
-Our SPEINet model trained on random ratio GoProRS dataset can be download Here [Google Drive Folder](https://drive.google.com/drive/folders/1AfAH4Fmj1DE0tcxOCMssCqCWuIcptkBI?dmr=1&ec=wgc-drive-globalnav-goto)
+Our SPEINet model trained on random ratio GoProRS dataset can be download Here [Google Drive](https://drive.google.com/drive/folders/1AfAH4Fmj1DE0tcxOCMssCqCWuIcptkBI?dmr=1&ec=wgc-drive-globalnav-goto)
 
 if you want only generate GoProRS dataset not include the SPEINet model, you can run
 ```bash
