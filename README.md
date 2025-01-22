@@ -1,4 +1,4 @@
-# Paper
+# Video Deblurring by Sharpness Prior Detection and Edge Information
 Paper under review.
 
 # SPEINet
