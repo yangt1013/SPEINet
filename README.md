@@ -9,7 +9,7 @@ Requirements: opencv-python, numpy, matplotlib, imageio, scikit-image, tqdm
 Platforms: Ubuntu 22.04, cuda-12.4, 3*A100(40G)
 
 # Datasets
-**GoProRS organiazation Form**
+## GoProRS organiazation Form
 ```bash
 |--dataset
     |--blur  
