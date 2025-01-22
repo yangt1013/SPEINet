@@ -28,14 +28,6 @@ Platforms: Ubuntu 22.04, cuda-12.4, 3*A100(40G)
         |--video 2
          :
         |--video n
-    |--Event
-        |--video 1
-            |--frame 1
-            |--frame 2
-                ：  
-        |--video 2
-         :
-        |--video n
     |--label
         |--video 1
         |--video 2
