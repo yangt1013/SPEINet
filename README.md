@@ -3,7 +3,8 @@
 # Video visulization
 [Video Deblurring Visulization](https://drive.google.com/file/d/1d7F9RDtkRZ0NQ701mw-izlyxvNz1UZnc/view?usp=drive_link)
 
-
+First row is blur video and ground truth video
+Second row is D2Net video deblurring results and SPEINet video deblurring results
 
 
 # Environment
